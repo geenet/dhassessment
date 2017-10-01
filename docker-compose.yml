@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+  dhassessment:
+    image: dhassessment:1.0.0
+    container_name: dhassessment
+    links:
+      - postgres
+    volumes:
+      - "$HOME/.ivy2:/root/.ivy2"
+    environment:
+      - DATABASE_PORT_5432_TCP_ADDR=postgres
+      - DATABASE_PORT_5432_TCP_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=
+      - JAVA_OPTS=-Xms1024m -Xmx2048m -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:NewSize=256m -XX:MaxNewSize=256m
+    ports:
+      - "9000:9000"
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
