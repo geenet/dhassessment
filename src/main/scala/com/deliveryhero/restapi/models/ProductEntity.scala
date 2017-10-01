@@ -1,5 +1,15 @@
 package com.deliveryhero.restapi.models
 
+/**
+ * ProductEntity which will be used for database access.
+ *
+ * @param id
+ * @param modelId
+ * @param name
+ * @param brand
+ * @param price
+ * @param media
+ */
 case class ProductEntity(
   id: Option[String] = None,
   modelId: String,
