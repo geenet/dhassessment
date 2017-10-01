@@ -14,7 +14,7 @@ You can either use:
 $ sbt run
 ```
 
-inside of the project with Postgres running locally.
+inside of the project with Postgres running locally. 
 
 OR using Docker:
 
@@ -23,7 +23,11 @@ $ sbt docker:publishLocal
 $ docker-compose up --build
 ```
 
-**NOTE:** For the sake of testing application drops `products` table in every start-up and recreates it.
+**NOTE:**
+Application database configuration is defaults to Postgres.
+Database name as `postgres` and username as `postgres` and password is empty string.
+Application uses `products` table.
+For the sake of testing application drops `products` table in every start-up and recreates it.
 
 # Testing
 
